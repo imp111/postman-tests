@@ -7,260 +7,538 @@
 	},
 	"item": [
 		{
-			"name": "GET NO Parameters",
+			"name": "Required Parameters",
 			"item": [
 				{
-					"name": "GET with no parameters",
-					"event": [
+					"name": "GET NO Parameters",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 401\", function () {\r",
-									"    pm.response.to.have.status(401);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response message is error\", function () {\r",
-									"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{CurrentWeatherDataURL}}/",
-							"host": [
-								"{{CurrentWeatherDataURL}}"
-							],
-							"path": [
-								""
-							],
-							"query": [
+							"name": "GET with no parameters",
+							"event": [
 								{
-									"key": "lat",
-									"value": "{lat}",
-									"disabled": true
-								},
-								{
-									"key": "lon",
-									"value": "{lon}",
-									"disabled": true
-								},
-								{
-									"key": "appid",
-									"value": "{API key}",
-									"disabled": true
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message is error\", function () {\r",
+											"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
 								}
-							]
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CWDbaseURL}}/weather",
+									"host": [
+										"{{CWDbaseURL}}"
+									],
+									"path": [
+										"weather"
+									],
+									"query": [
+										{
+											"key": "lat",
+											"value": "{lat}",
+											"disabled": true
+										},
+										{
+											"key": "lon",
+											"value": "{lon}",
+											"disabled": true
+										},
+										{
+											"key": "appid",
+											"value": "{API key}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET no lat parameter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message is error\", function () {\r",
+											"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CWDbaseURL}}/weather?lat={{SofiaLatitude}}",
+									"host": [
+										"{{CWDbaseURL}}"
+									],
+									"path": [
+										"weather"
+									],
+									"query": [
+										{
+											"key": "lon",
+											"value": "{lon}",
+											"disabled": true
+										},
+										{
+											"key": "appid",
+											"value": "{API key}",
+											"disabled": true
+										},
+										{
+											"key": "lat",
+											"value": "{{SofiaLatitude}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET no lon parameter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message is error\", function () {\r",
+											"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CurrentWeatherDataURL}}/weather?lon={{SofiaLongitude}}",
+									"host": [
+										"{{CurrentWeatherDataURL}}"
+									],
+									"path": [
+										"weather"
+									],
+									"query": [
+										{
+											"key": "appid",
+											"value": "{API key}",
+											"disabled": true
+										},
+										{
+											"key": "lat",
+											"value": "{{SofiaLatitude}}",
+											"disabled": true
+										},
+										{
+											"key": "lon",
+											"value": "{{SofiaLongitude}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET no appid parameter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message is error\", function () {\r",
+											"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CWDbaseURL}}/weather?lon={{SofiaLongitude}}",
+									"host": [
+										"{{CWDbaseURL}}"
+									],
+									"path": [
+										"weather"
+									],
+									"query": [
+										{
+											"key": "appid",
+											"value": "{API key}",
+											"disabled": true
+										},
+										{
+											"key": "lat",
+											"value": "{{SofiaLatitude}}",
+											"disabled": true
+										},
+										{
+											"key": "lon",
+											"value": "{{SofiaLongitude}}"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "GET no lat parameter",
-					"event": [
+					"name": "GET WITH ONE Parameters",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 401\", function () {\r",
-									"    pm.response.to.have.status(401);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response message is error\", function () {\r",
-									"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{CurrentWeatherDataURL}}/?lat={{SofiaLatitude}}",
-							"host": [
-								"{{CurrentWeatherDataURL}}"
-							],
-							"path": [
-								""
-							],
-							"query": [
+							"name": "GET WITH appid parameter",
+							"event": [
 								{
-									"key": "lon",
-									"value": "{lon}",
-									"disabled": true
-								},
-								{
-									"key": "appid",
-									"value": "{API key}",
-									"disabled": true
-								},
-								{
-									"key": "lat",
-									"value": "{{SofiaLatitude}}"
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error message\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var expectMessage = \"Nothing to geocode\";\r",
+											"    pm.expect(jsonData.message).to.eql(expectMessage);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
 								}
-							]
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CWDbaseURL}}/weather?appid={{CurrentWeatherDataApiKey}}",
+									"host": [
+										"{{CWDbaseURL}}"
+									],
+									"path": [
+										"weather"
+									],
+									"query": [
+										{
+											"key": "lat",
+											"value": "{{SofiaLatitude}}",
+											"disabled": true
+										},
+										{
+											"key": "lon",
+											"value": "{{SofiaLongitude}}",
+											"disabled": true
+										},
+										{
+											"key": "appid",
+											"value": "{{CurrentWeatherDataApiKey}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET WITH lat parameter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message is error\", function () {\r",
+											"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CWDbaseURL}}/weather?lat={{SofiaLatitude}}",
+									"host": [
+										"{{CWDbaseURL}}"
+									],
+									"path": [
+										"weather"
+									],
+									"query": [
+										{
+											"key": "lat",
+											"value": "{{SofiaLatitude}}"
+										},
+										{
+											"key": "lon",
+											"value": "{{SofiaLongitude}}",
+											"disabled": true
+										},
+										{
+											"key": "appid",
+											"value": "{{CurrentWeatherDataApiKey}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET WITH lot parameter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message is error\", function () {\r",
+											"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CWDbaseURL}}/weather?lon={{SofiaLongitude}}",
+									"host": [
+										"{{CWDbaseURL}}"
+									],
+									"path": [
+										"weather"
+									],
+									"query": [
+										{
+											"key": "lat",
+											"value": "{{SofiaLatitude}}",
+											"disabled": true
+										},
+										{
+											"key": "lon",
+											"value": "{{SofiaLongitude}}"
+										},
+										{
+											"key": "appid",
+											"value": "{{CurrentWeatherDataApiKey}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "GET no lon parameter",
-					"event": [
+					"name": "GET WITH TWO Parameters",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 401\", function () {\r",
-									"    pm.response.to.have.status(401);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response message is error\", function () {\r",
-									"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{CurrentWeatherDataURL}}/?lon={{SofiaLongitude}}",
-							"host": [
-								"{{CurrentWeatherDataURL}}"
-							],
-							"path": [
-								""
-							],
-							"query": [
+							"name": "GET WITH appid and lot parameters",
+							"event": [
 								{
-									"key": "appid",
-									"value": "{API key}",
-									"disabled": true
-								},
-								{
-									"key": "lat",
-									"value": "{{SofiaLatitude}}",
-									"disabled": true
-								},
-								{
-									"key": "lon",
-									"value": "{{SofiaLongitude}}"
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error message\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var expectMessage = \"Nothing to geocode\";\r",
+											"    pm.expect(jsonData.message).to.eql(expectMessage);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET no appid parameter",
-					"event": [
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CWDbaseURL}}/weather?lot={{SofiaLongitude}}&appid={{CurrentWeatherDataApiKey}}",
+									"host": [
+										"{{CWDbaseURL}}"
+									],
+									"path": [
+										"weather"
+									],
+									"query": [
+										{
+											"key": "lot",
+											"value": "{{SofiaLongitude}}"
+										},
+										{
+											"key": "appid",
+											"value": "{{CurrentWeatherDataApiKey}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
 						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 401\", function () {\r",
-									"    pm.response.to.have.status(401);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response message is error\", function () {\r",
-									"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{CurrentWeatherDataURL}}/?lon={{SofiaLongitude}}",
-							"host": [
-								"{{CurrentWeatherDataURL}}"
-							],
-							"path": [
-								""
-							],
-							"query": [
+							"name": "GET WITH appid and lat parameters",
+							"event": [
 								{
-									"key": "appid",
-									"value": "{API key}",
-									"disabled": true
-								},
-								{
-									"key": "lat",
-									"value": "{{SofiaLatitude}}",
-									"disabled": true
-								},
-								{
-									"key": "lon",
-									"value": "{{SofiaLongitude}}"
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error message\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    var expectMessage = \"Nothing to geocode\";\r",
+											"    pm.expect(jsonData.message).to.eql(expectMessage);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
 								}
-							]
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CWDbaseURL}}/weather?lat={{SofiaLatitude}}&appid={{CurrentWeatherDataApiKey}}",
+									"host": [
+										"{{CWDbaseURL}}"
+									],
+									"path": [
+										"weather"
+									],
+									"query": [
+										{
+											"key": "lat",
+											"value": "{{SofiaLatitude}}"
+										},
+										{
+											"key": "appid",
+											"value": "{{CurrentWeatherDataApiKey}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET WITH lat and lot parameters",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message is error\", function () {\r",
+											"    let expectResponse = \"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\";\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.message).to.eql(expectResponse);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{CWDbaseURL}}/weather?lat={{SofiaLatitude}}&lot={{SofiaLongitude}}",
+									"host": [
+										"{{CWDbaseURL}}"
+									],
+									"path": [
+										"weather"
+									],
+									"query": [
+										{
+											"key": "lat",
+											"value": "{{SofiaLatitude}}"
+										},
+										{
+											"key": "lot",
+											"value": "{{SofiaLongitude}}"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			]
 		},
 		{
-			"name": "GET WITH Parameters",
-			"item": [
-				{
-					"name": "GET WITH appid parameter",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{CurrentWeatherDataURL}}/?appid={{CurrentWeatherDataApiKey}}",
-							"host": [
-								"{{CurrentWeatherDataURL}}"
-							],
-							"path": [
-								""
-							],
-							"query": [
-								{
-									"key": "lat",
-									"value": "{{SofiaLatitude}}",
-									"disabled": true
-								},
-								{
-									"key": "lon",
-									"value": "{{SofiaLongitude}}",
-									"disabled": true
-								},
-								{
-									"key": "appid",
-									"value": "{{CurrentWeatherDataApiKey}}"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
+			"name": "Optional Parameters",
+			"item": []
 		}
 	],
 	"event": [
@@ -285,12 +563,13 @@
 	],
 	"variable": [
 		{
-			"key": "CurrentWeatherDataURL",
-			"value": "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}"
-		},
-		{
 			"key": "CurrentWeatherDataApiKey",
 			"value": ""
+		},
+		{
+			"key": "CWDbaseURL",
+			"value": "https://api.openweathermap.org/data/2.5",
+			"type": "string"
 		}
 	]
 }
